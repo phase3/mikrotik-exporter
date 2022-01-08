@@ -153,6 +153,13 @@ func WithWlanIF() Option {
 	}
 }
 
+// WithKidControlDevice enables Kid Control Device metrics
+func WithKidControlDevice() Option {
+	return func(c *collector) {
+		c.collectors = append(c.collectors, newKidControlDeviceCollector())
+	}
+}
+
 // WithMonitor enables ethernet monitor collector metrics
 func Monitor() Option {
 	return func(c *collector) {
